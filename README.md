@@ -1,4 +1,4 @@
-## LogRhythm Programming Exercise - README.md
+## Programming Exercise - README.md
 
 by Scott Patten scopatten@gmail.com - JAN 21, 2016
 
