@@ -33,18 +33,18 @@ Delete individual entries by clicking the 'x' to the right of the entry.  Delete
 ## Directory Structure:
 
 Parent Directory\
-_css\
-__ionicons.min.css\
-__style.css\
-_fonts\
-__ionicons.eot\
-__ionicons.svg\
-__ionicons.ttf\
-__ionicons.woff\
-_js\
-__angular.min.js\
-__angular-messages.min.js\
-_app.js\
-_index.html\
-_README.md\
+>css\
+>>ionicons.min.css\
+>>style.css\
+>fonts\
+>>ionicons.eot\
+>>ionicons.svg\
+>>ionicons.ttf\
+>>ionicons.woff\
+>js\
+>>angular.min.js\
+>>angular-messages.min.js\
+>app.js\
+>index.html\
+>README.md\
 
