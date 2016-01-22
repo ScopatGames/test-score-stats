@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-size: 18px;
+    color: #666;
+}
+
+*:focus {outline: none}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+html {
+    background-color: #ffffff;
+}
+
+body {
+    margin: 1em auto;
+    max-width: 800px;
+    
+}
+
+header {
+    background-color: #fff;
+    padding: 0;
+    border-bottom: 2px solid #032b96;
+}
+
+h1 {
+    font-size: 200%;
+    font-weight: 100;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 120%;
+    font-weight: 100;
+}
+
+.stats-section {
+    height: 160px;
+    margin: 0;
+}
+
+.stats-col {
+    display: inline-block;
+    background-color: #fff;
+    float: left;
+    width:33.33%;
+    height: 100%;
+    margin:0;
+    padding: 20px 0;
+    text-align: center;
+    border-left: 2px solid #d6f1ff;
+}
+.stats-col:last-of-type {
+    border-right: 2px solid #d6f1ff;
+    width: 33.34%;
+}
+
+.stats-col h2 {
+    font-size: 250%;
+    text-transform: uppercase;
+}
+
+.stat {
+    font-size: 300%;
+    font-weight: 600;
+    color: #43ff2a;
+}
+
+.label-name {
+    display: inline-block;
+    width: 70%;
+    text-align: center;
+    padding: 20px 0 1px 0;
+    margin-bottom: 2px;
+}
+
+.label-score {
+    width: 20%;
+    display: inline-block;
+    margin-left: 10px;
+    padding: 20px 18px 1px 0;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.input-section {
+    background-color: #fff;
+    padding: 0;
+    border-left: 2px solid #d6f1ff;
+    border-right: 2px solid #d6f1ff;
+}
+
+.btn-row {
+    height: 60px;
+}
+
+.input-row {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.form-row {
+    display: block;
+}
+
+.message-row {
+    display: block;
+    width: 92%;
+}
+
+.input-box {
+    border: 1px solid #d6f1ff;
+    padding: 2px;
+    margin: 0;
+}
+
+.input-name {
+    display: inline-block;
+    width: 70%;
+    text-align: center;
+}
+.input-score {
+    display: inline-block;
+    width:20%;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.score-message {
+    float: right;
+}
+.score-message div {
+    font-size: 80%;
+    color: #ff2700;
+    text-align: right;
+}
+
+.name-message {
+    float: left;
+}
+
+.name-message div {
+    font-size: 80%;
+    color: #ff2700;
+    text-align: left;
+}
+
+.fail-score {
+    background-color: #fff;
+    border: 1px solid #ffd6d6;
+    color: #ff2700;
+}
+
+.input-btn-x {
+    display: inline-block;
+    width: 4%;
+    border: 1px solid transparent;
+    padding: 2px;
+    margin-left: 10px;
+    background-color: transparent;
+}
+
+
+.input-btn-x:hover .ion-close-round {
+    color: #ff2700;
+}
+
+.input-btn-x .ion-close-round {
+    color: #ffbbbb;
+    text-align: center;
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+
+.last-item {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.input-btn-add {
+    border: none;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: 160%;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: #43ff2a;
+    color: #fff;
+    -webkit-transition: background-color 0.4s;
+    transition: background-color 0.4s;
+}
+
+.input-btn-add:hover {
+    background-color: #6eff5c;
+}
+
+.input-btn-add:active {
+    background-color: #9cff8e;
+}
+
+.clear-div {
+    width: 100%;
+    height: 60px;
+    margin: 0;
+}
+
+.input-btn-save {
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 10px;
+    height: 100%;
+    background-color: #032b96;
+    color: #ffffff;
+    -webkit-transition: background-color 0.4s;
+    transition: background-color 0.4s;
+}
+
+.input-btn-save:hover {
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    padding: 10px;
+    background-color: #0033b7;
+}
+
+.input-btn-save:active {
+    background-color: #a3e0ff;
+}
+
+.ion-android-person-add {
+    font-size: 100%;
+    color: #fff;
+}
+
+
+.ion-arrow-up-c {
+    font-size: 140%;
+    color: #ff2700;
+}
+
+
+.input-btn-save .ion-close-round {
+    font-size: 100%;
+    color: #fff;
+}
+
+
+

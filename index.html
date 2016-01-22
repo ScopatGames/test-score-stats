@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="scoresApp">
+    <head>
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="As a teacher, I want to enter a list of student names along with his or her test score on a
+page, so I may see a summary of my class’ performance on a test. The summary shall include the min, max, and average grade.">
+        
+        <!-- Style -->
+        <link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <title>LogRhythm Programming Exercise - Scott Patten</title>
+        
+        <!-- Scripts -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-messages.min.js"></script>
+        <script src="js/app.js"></script>
+    
+    </head>
+    <body ng-controller="mainController as main">
+        <header>
+            <h1>Test Statistics</h1>
+        </header>
+        
+        <div class="stats-section">
+            <div class="stats-col">
+                <div><h2>Avg</h2></div>
+                <div class="stat">{{main.getStats().average}}</div>
+            </div>
+            <div class="stats-col">
+                <div><h2>Max</h2></div>
+                <div class="stat">{{main.getStats().max}}</div>
+            </div>
+            <div class="stats-col">
+                <div><h2>Min</h2></div>
+                <div class="stat">{{main.getStats().min}}</div>
+            </div>
+            
+        </div>
+        <div class="input-section">
+            <div class="btn-row clearfix">
+                
+                <div class="clear-div">
+                    <button class="input-btn-save" type="button" tabindex="-1" ng-click="main.clearData();"><i class="ion-close-round"></i>&nbsp;&nbsp;Clear Data</button>
+                </div>
+            </div>
+            <div class="input-row clearfix">
+                <div class="label-name">
+                    <h2>Student Name</h2>
+                </div>
+                <div class="label-score">
+                    <h2>Score</h2>
+                </div>
+            </div>
+            <div class="input-row" ng-repeat="student in main.studentData">
+                <form name="scoresForm" novalidate>
+                    <!-- input fields -->
+                    <div class="form-row clearfix">    
+                        <input class="input-box input-name" type="text" maxlength="40" ng-class="{'fail-score': (student.score < 65) && student.score !== null}" ng-model="student.name" ng-model-options="{updateOn : 'blur'}" update-model-on-enter ng-change="main.saveData();" pattern="[A-Za-z ]+" ng-pattern-restrict name="name" placeholder="Enter New Student Name" onfocus="if (this.placeholder == 'Enter New Student Name') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = 'Enter New Student Name';}">
+                        <input class="input-box input-score" type="number" ng-class="{'fail-score': (student.score < 65) && student.score !== null}" ng-model="student.score" ng-model-options="{updateOn : 'blur'}"  update-model-on-enter ng-change="main.saveData();" name="score" min="0" max="100" placeholder="0-100" onchange="if (Math.floor(this.value*100) !== this.value*100) {this.value = Math.round(this.value*100)/100;}" onfocus="if (this.placeholder == '0-100') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = '0-100';}">
+                        <button class="input-btn-x" type="button" ng-class="{'last-item': ($index === 0 && (student.score === null && student.name === null))}" tabindex="-1" ng-click="main.deleteStudent($index);"><i class="ion-close-round"></i></button>
+                        <div class="message-row clearfix">
+                            <!-- ng-messages -->
+                            <div ng-messages="scoresForm.name.$error" class="name-message" > 
+                                <div ng-message="pattern"><i class="ion-arrow-up-c"></i> Invalid Name: Use characters "A-Z a-z"</div>
+                            </div>
+
+                            <div ng-messages="scoresForm.score.$error" class="score-message">
+                                <div ng-message="number">Invalid Score: Must be Numeric <i class="ion-arrow-up-c"></i></div>
+                                <!--<div ng-message="required">Required field <i class="ion-arrow-up-c"></i></div>-->
+                                <div ng-message="min">Invalid Score: 0 - 100 <i class="ion-arrow-up-c"></i></div>
+                                <div ng-message="max">Invalid Score: 0 - 100 <i class="ion-arrow-up-c"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+            <br/>
+            <button class="input-btn-add" type="button" tabindex="-1" ng-click="main.addStudent();"><i class="ion-android-person-add"></i>&nbsp;&nbsp;Add New Student</button>
+            
+            
+            <div class="clearfix"></div>
+        </div>
+    </body>
+</html>
