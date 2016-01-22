@@ -30,21 +30,3 @@ Data entries may be edited in-line.  Model updates happen on 'return' or loss of
 Delete individual entries by clicking the 'x' to the right of the entry.  Delete all entries by clicking the 'Clear Data' button.  These deletes update the model.  A 'confirm delete' feature may be turned on (uncommented) in the app.js file; however, the UX is damaged by the pop-ups.  These buttons make use of the JavaScript function 'confirm()', so if they are not functioning, check your browser settings.
 
 
-## Directory Structure:
-
-Parent Directory
-css
-ionicons.min.css
-style.css
-fonts
-ionicons.eot
-ionicons.svg
-ionicons.ttf
-ionicons.woff
-js
-angular.min.js
-angular-messages.min.js
-app.js
-index.html
-README.md
-
