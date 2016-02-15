@@ -1,4 +1,4 @@
-## LogRhythm Programming Exercise - README.md
+## Programming Exercise - README.md
 
 by Scott Patten scopatten@gmail.com - JAN 21, 2016
 
@@ -29,22 +29,4 @@ Data entries may be edited in-line.  Model updates happen on 'return' or loss of
 
 Delete individual entries by clicking the 'x' to the right of the entry.  Delete all entries by clicking the 'Clear Data' button.  These deletes update the model.  A 'confirm delete' feature may be turned on (uncommented) in the app.js file; however, the UX is damaged by the pop-ups.  These buttons make use of the JavaScript function 'confirm()', so if they are not functioning, check your browser settings.
 
-
-## Directory Structure:
-
-Parent Directory\
-_css\
-__ionicons.min.css\
-__style.css\
-_fonts\
-__ionicons.eot\
-__ionicons.svg\
-__ionicons.ttf\
-__ionicons.woff\
-_js\
-__angular.min.js\
-__angular-messages.min.js\
-_app.js\
-_index.html\
-_README.md\
 
