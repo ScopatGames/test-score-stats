@@ -1,26 +1,7 @@
-//Default student data
-var localStudentData = [{
-        name: 'Sudsy McDerman',
-        score: 64.00
-    }, {
-        name: 'Boxtrod Folly',
-        score: 100.00
-}];
-
-//Test localStorage
-var localStorageBool = false;
-(function(){
-    if(typeof(window.Storage) !== "undefined"){
-        localStorageBool = true;
-    }
-})();
-
-/* ---- Uncomment line below to clear localStorage variable ---- */
-//localStorage.removeItem('studentData');
-
-var scoresApp = angular.module('scoresApp', ['ngMessages']);
-
-scoresApp.controller('mainController', ['$scope', '$window', function($scope, $window){
+angular.module('scoresApp').controller('mainController', ['$scope', '$window', ScoresController]);
+                                                          
+                                                          
+function ScoresController ($scope, $window){
     
     this.savedStudentData = (localStorageBool) ? localStorage.getItem('studentData') : localStudentData;
     this.studentData = (localStorageBool && localStorage.getItem('studentData')!==null) ? JSON.parse(this.savedStudentData) : localStudentData;
@@ -120,26 +101,5 @@ scoresApp.controller('mainController', ['$scope', '$window', function($scope, $w
         num = Math.round(num + "e+2")+"e-2";
         return +num;
     };
-}]);
-
-//Update Model On Enter custom angularjs directive
-angular.module('scoresApp').directive("updateModelOnEnter", function() {
-    return {
-        restrict: 'A',
-        require: 'ngModel',
-        link: function (scope, elem, attrs, ngModelCtrl) {
-            elem.bind("keyup",function(e) {
-                if (e.keyCode === 13) {
-                    ngModelCtrl.$commitViewValue();
-                    scope.$apply(ngModelCtrl.$setTouched);
-                }
-            });
-        }
-    }
-});
-    
-
-
-
-
+}
 
