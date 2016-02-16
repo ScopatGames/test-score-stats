@@ -1,0 +1,22 @@
+{
+  "name": "logrhythm-quiz",
+  "description": "by Scott Patten scopatten@gmail.com - JAN 21, 2016",
+  "main": "index.js",
+  "license": "ISC",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-messages": "^1.5.0",
+    "angular": "^1.5.0"
+  }
+}
