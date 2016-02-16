@@ -1,13 +1,12 @@
 {
-  "name": "logrhythm-quiz",
-  "description": "by Scott Patten scopatten@gmail.com - JAN 21, 2016",
-  "main": "index.js",
-  "license": "ISC",
+  "name": "Angular application exercise",
+  "description": "by Scott Patten scopatten@gmail.com",
+  "license": "MIT",
   "moduleType": [
     "globals",
     "node"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/ScopatGames/test-score-stats#readme",
   "ignore": [
     "**/.*",
     "node_modules",

@@ -1,8 +1,7 @@
 {
-  "name": "logrhythm-quiz",
+  "name": "Angular application exercise",
   "version": "1.0.0",
-  "description": "by Scott Patten scopatten@gmail.com - JAN 21, 2016",
-  "main": "index.js",
+  "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +9,8 @@
     "type": "git",
     "url": "git+https://github.com/ScopatGames/test-score-stats.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "by Scott Patten scopatten@gmail.com",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ScopatGames/test-score-stats/issues"
   },
