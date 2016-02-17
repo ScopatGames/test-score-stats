@@ -1,23 +1,33 @@
-/* Global data */
+angular
+    .module('scoresApp')
+    .factory('dataservice', dataservice);
 
-//Default student data
-var localStudentData = [{
-        name: 'Sudsy McDerman',
-        score: 64.00
-    }, {
-        name: 'Boxtrod Folly',
-        score: 100.00
-}];
+dataservice.$inject = ['$window'];
 
-//Test localStorage
-var localStorageBool = false;
-if(typeof(window.Storage) !== "undefined"){
-    localStorageBool = true;
+function dataservice(){
+    var service = {
+        getStudentData: getStudentData,
+        saveStudentData: saveStudentData
+    };
+    
+    //Default student data
+    var defaultStudentData = [{
+            name: 'Sudsy McDerman',
+            score: 64.00
+        }, {
+            name: 'Boxtrod Folly',
+            score: 100.00
+    }];
+    
+    return service;
+    
+    function getStudentData(){
+        return ((typeof($window.Storage) !== "undefined" && localStorage.getItem('studentData')!==null) ? JSON.parse(localStorage.getItem('studentData')) : defaultStudentData);
+    }
+    
+    function saveStudentData(saveData){
+        if(typeof($window.Storage) !== "undefined"){
+            localStorage.setItem('studentData', JSON.stringify(saveData));
+        }
+    }
 }
-
-/* ---- Uncomment line below to clear localStorage variable ---- */
-//localStorage.removeItem('studentData');
-
-
-
-

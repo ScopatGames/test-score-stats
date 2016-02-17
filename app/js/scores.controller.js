@@ -1,9 +1,11 @@
 (function(){
     angular
         .module('scoresApp')
-        .controller('mainController', ['getStatsFactory', ScoresController]);
+        .controller('ScoresController', ScoresController);
+    
+    ScoresController.$inject = ['dataservice', 'getStatsFactory'];
 
-    function ScoresController (getStatsFactory){ 
+    function ScoresController (dataservice, getStatsFactory){ 
         var vm = this;
         
         vm.addStudent = addStudent;
@@ -11,7 +13,9 @@
         vm.deleteStudent = deleteStudent;
         vm.getStats = getStats;
         vm.saveData = saveData;
-        vm.studentData = getStudentData();
+        vm.studentData = [];
+        
+        initializeStudentData();
         
         /////////////////
         
@@ -21,7 +25,6 @@
         
         function clearData(){
                 vm.studentData = [{name: null, score: null}];
-                localStudentData = [{name: null, score: null}];
                 vm.saveData();
         }
         
@@ -35,22 +38,16 @@
             vm.saveData();
         }
         
-        function getStudentData(){
-            return ((localStorageBool && localStorage.getItem('studentData')!==null) ? JSON.parse(getSavedStudentData()) : localStudentData);
-        }
-        
-        function getSavedStudentData(){
-            return ((localStorageBool) ? localStorage.getItem('studentData') : localStudentData);
-        }
-        
         function getStats(){
             return getStatsFactory.getStats(vm.studentData);
         }
+        
+        function initializeStudentData(){
+            vm.studentData = dataservice.getStudentData();
+        }
 
         function saveData(){
-            if(localStorageBool){
-                localStorage.setItem('studentData', JSON.stringify(vm.studentData));
-            }
+            dataservice.saveStudentData(vm.studentData);
         }
     }
 })();
