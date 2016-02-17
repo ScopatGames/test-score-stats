@@ -1,3 +1,5 @@
+/* Global data */
+
 //Default student data
 var localStudentData = [{
         name: 'Sudsy McDerman',
@@ -9,11 +11,9 @@ var localStudentData = [{
 
 //Test localStorage
 var localStorageBool = false;
-(function(){
-    if(typeof(window.Storage) !== "undefined"){
-        localStorageBool = true;
-    }
-})();
+if(typeof(window.Storage) !== "undefined"){
+    localStorageBool = true;
+}
 
 /* ---- Uncomment line below to clear localStorage variable ---- */
 //localStorage.removeItem('studentData');
