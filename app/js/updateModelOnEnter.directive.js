@@ -10,5 +10,5 @@ angular.module('scoresApp').directive("updateModelOnEnter", function() {
                 }
             });
         }
-    }
+    };
 });

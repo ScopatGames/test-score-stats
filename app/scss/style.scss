@@ -1,0 +1,281 @@
+$font-stack: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$background-color: #ffffff;
+$primary-color: #666;
+$primary-size: 18px;
+$clear-data-color: #032b96;
+$clear-data-color-hover: #0033b7;
+$clear-data-color-active: #a3e0ff;
+$stats-border-color: #d6f1ff;
+$add-student-color: #43ff2a;
+$add-student-color-hover: #6eff5c;
+$add-student-color-active: #9cff8e;
+$warning-color: #ff2700;
+$warning-border-color: #ffd6d6;
+$button-text-color: #fff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-stack;
+    font-size: $primary-size;
+    color: $primary-color;
+}
+
+*:focus {outline: none}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+html {
+    background-color: $background-color;
+}
+
+body {
+    margin: 1em auto;
+    max-width: 800px;
+    
+}
+
+header {
+    background-color: $background-color;
+    padding: 0;
+    border-bottom: 2px solid $clear-data-color;
+}
+
+h1 {
+    font-size: 200%;
+    font-weight: 100;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 120%;
+    font-weight: 100;
+}
+
+.stats-section {
+    height: 160px;
+    margin: 0;
+}
+
+.stats-col {
+    display: inline-block;
+    background-color: $background-color;
+    float: left;
+    width:33.33%;
+    height: 100%;
+    margin:0;
+    padding: 20px 0;
+    text-align: center;
+    border-left: 2px solid $stats-border-color;
+    
+    h2 {
+        font-size: 250%;
+        text-transform: uppercase;
+    }
+}
+.stats-col:last-of-type {
+    border-right: 2px solid $stats-border-color;
+    width: 33.34%;
+}
+
+.stat {
+    font-size: 300%;
+    font-weight: 600;
+    color: $add-student-color;
+}
+
+.label-name {
+    display: inline-block;
+    width: 70%;
+    text-align: center;
+    padding: 20px 0 1px 0;
+    margin-bottom: 2px;
+}
+
+.label-score {
+    width: 20%;
+    display: inline-block;
+    margin-left: 10px;
+    padding: 20px 18px 1px 0;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.input-section {
+    background-color: $background-color;
+    padding: 0;
+    border-left: 2px solid $stats-border-color;
+    border-right: 2px solid $stats-border-color;
+}
+
+.btn-row {
+    height: 60px;
+}
+
+.input-row {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.form-row {
+    display: block;
+}
+
+.message-row {
+    display: block;
+    width: 92%;
+}
+
+.input-box {
+    border: 1px solid $stats-border-color;
+    padding: 2px;
+    margin: 0;
+}
+
+.input-name {
+    display: inline-block;
+    width: 70%;
+    text-align: center;
+}
+.input-score {
+    display: inline-block;
+    width:20%;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.score-message {
+    float: right;
+}
+.score-message div {
+    font-size: 80%;
+    color: $warning-color;
+    text-align: right;
+}
+
+.name-message {
+    float: left;
+    
+    div {
+        font-size: 80%;
+        color: $warning-color;
+        text-align: left;
+    }
+}
+
+.fail-score {
+    background-color: $background-color;
+    border: 1px solid $warning-border-color;
+    color: $warning-color;
+}
+
+.input-btn-x {
+    display: inline-block;
+    width: 4%;
+    border: 1px solid transparent;
+    padding: 2px;
+    margin-left: 10px;
+    background-color: transparent;
+    
+    .ion-close-round {
+        color: $warning-border-color;
+        text-align: center;
+        -webkit-transition: color 0.4s;
+        transition: color 0.4s;
+    }
+}
+
+
+.input-btn-x:hover .ion-close-round {
+    color: $warning-color;
+}
+
+.last-item {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.input-btn-add {
+    border: none;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: 160%;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: $add-student-color;
+    color: $button-text-color;
+    -webkit-transition: background-color 0.4s;
+    transition: background-color 0.4s;
+}
+
+.input-btn-add:hover {
+    background-color: $add-student-color-hover;
+}
+
+.input-btn-add:active {
+    background-color: $add-student-color-active;
+}
+
+.clear-div {
+    width: 100%;
+    height: 60px;
+    margin: 0;
+}
+
+.input-btn-save {
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 10px;
+    height: 100%;
+    background-color: $clear-data-color;
+    color: $button-text-color;
+    -webkit-transition: background-color 0.4s;
+    transition: background-color 0.4s;
+    
+    .ion-close-round {
+        font-size: 100%;
+        color: $button-text-color;
+    }
+}
+
+.input-btn-save:hover {
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    padding: 10px;
+    background-color: $clear-data-color-hover;
+}
+
+.input-btn-save:active {
+    background-color: $clear-data-color-active;
+}
+
+.ion-android-person-add {
+    font-size: 100%;
+    color: $button-text-color;
+}
+
+.ion-arrow-up-c {
+    font-size: 140%;
+    color: $warning-color;
+}
+
+
+
+
