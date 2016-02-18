@@ -3,6 +3,8 @@
         .module('scoresApp')
         .factory('dataservice', dataservice);
 
+    dataservice.$inject = ['$window'];
+    
     function dataservice($window){
         var service = {
             getStudentData: getStudentData,

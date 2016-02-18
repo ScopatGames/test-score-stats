@@ -5,7 +5,9 @@
     
     ScoresController.$inject = ['dataservice', 'getStatsFactory'];
 
-    function ScoresController (dataservice, getStatsFactory){ 
+    function ScoresController (dataservice, getStatsFactory){
+        "ngInject";
+        
         var vm = this;
         
         vm.addStudent = addStudent;
@@ -25,7 +27,7 @@
         
         function clearData(){
                 vm.studentData = [{name: null, score: null}];
-                vm.saveData();
+                saveData();
         }
         
         function deleteStudent (index){
@@ -35,7 +37,7 @@
             else{
                 vm.studentData.splice(index, 1);
             }
-            vm.saveData();
+            saveData();
         }
         
         function getStats(){
