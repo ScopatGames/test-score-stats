@@ -36,7 +36,6 @@ Start a local server with gulp:
 
 Open browser to localhost, port 3000:
 
-```localhost:3000```
 
 ## Usage:
 The application will try to use local storage.  If it is not available, it will revert to using default data.  This data will not be persistent from session to session unless local storage is available.
