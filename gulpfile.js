@@ -16,7 +16,7 @@ var useref = require('gulp-useref');
 
 gulp.task('build', function(callback) {
     runSequence('clean:dist', 
-        ['sass', 'useref', 'fonts'],
+        ['sass', 'useref', 'fonts', 'directives'],
         callback
     )
 });
@@ -34,6 +34,11 @@ gulp.task('default', function(callback) {
 gulp.task('fonts', function(){
    return gulp.src('app/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('directives', function(){
+   return gulp.src('app/directives/**/*')
+        .pipe(gulp.dest('dist/directives')); 
 });
 
 gulp.task('lint', function() {
