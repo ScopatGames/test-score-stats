@@ -2,9 +2,9 @@
 <html lang="en" ng-app="scoresApp">
     <head>
         <!-- Meta -->
-        <meta charset="utf-8">
+
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="description" content="As a teacher, I want to enter a list of student names along with his or her test score on a
+        <meta name="description" content="User Story: As a teacher, I want to enter a list of student names along with his or her test score on a
 page, so I may see a summary of my class’ performance on a test. The summary shall include the min, max, and average grade.">
         
         <!-- Style -->
@@ -40,7 +40,6 @@ page, so I may see a summary of my class’ performance on a test. The summary s
         </div>
         <div class="input-section">
             <div class="btn-row clearfix">
-                
                 <div class="clear-div">
                     <button class="input-btn-save" type="button" tabindex="-1" ng-click="vm.clearData();"><i class="ion-close-round"></i>&nbsp;&nbsp;Clear Data</button>
                 </div>
@@ -54,28 +53,7 @@ page, so I may see a summary of my class’ performance on a test. The summary s
                 </div>
             </div>
             <div class="input-row" ng-repeat="student in vm.studentData">
-                <form name="scoresForm" novalidate>
-                    <!-- input fields -->
-                    <div class="form-row clearfix">    
-                        <input class="input-box input-name" type="text" maxlength="40" ng-class="{'fail-score': (student.score < 65) && student.score !== null}" ng-model="student.name" ng-model-options="{updateOn : 'blur'}" update-model-on-enter ng-change="vm.saveData();" pattern="[A-Za-z ]+" ng-pattern-restrict name="name" placeholder="Enter New Student Name" onfocus="if (this.placeholder == 'Enter New Student Name') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = 'Enter New Student Name';}">
-                        <input class="input-box input-score" type="number" ng-class="{'fail-score': (student.score < 65) && student.score !== null}" ng-model="student.score" ng-model-options="{updateOn : 'blur'}"  update-model-on-enter ng-change="vm.saveData();" name="score" min="0" max="100" placeholder="0-100" onchange="if (Math.floor(this.value*100) !== this.value*100) {this.value = Math.round(this.value*100)/100;}" onfocus="if (this.placeholder == '0-100') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = '0-100';}">
-                        <button class="input-btn-x" type="button" ng-class="{'last-item': ($index === 0 && (student.score === null && student.name === null))}" tabindex="-1" ng-click="vm.deleteStudent($index);"><i class="ion-close-round"></i></button>
-                        <div class="message-row clearfix">
-                            <!-- ng-messages -->
-                            <div ng-messages="scoresForm.name.$error" class="name-message" > 
-                                <div ng-message="pattern"><i class="ion-arrow-up-c"></i> Invalid Name: Use characters "A-Z a-z"</div>
-                            </div>
-
-                            <div ng-messages="scoresForm.score.$error" class="score-message">
-                                <div ng-message="number">Invalid Score: Must be Numeric <i class="ion-arrow-up-c"></i></div>
-                                <!--<div ng-message="required">Required field <i class="ion-arrow-up-c"></i></div>-->
-                                <div ng-message="min">Invalid Score: 0 - 100 <i class="ion-arrow-up-c"></i></div>
-                                <div ng-message="max">Invalid Score: 0 - 100 <i class="ion-arrow-up-c"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </form>
+                <input-data-row student-object="student" save-data-function="vm.saveData()" delete-student-function="vm.deleteStudent(index)" index="{{$index}}"></input-data-row>
             </div>
             <br/>
             <button class="input-btn-add" type="button" tabindex="-1" ng-click="vm.addStudent();"><i class="ion-android-person-add"></i>&nbsp;&nbsp;Add New Student</button>
@@ -90,6 +68,7 @@ page, so I may see a summary of my class’ performance on a test. The summary s
          <script src="js/data.factory.js"></script>
          <script src="js/stats.factory.js"></script>
          <script src="js/scores.controller.js"></script>
+         <script src="js/inputDataRow.directive.js"></script>
          <script src="js/updateModelOnEnter.directive.js"></script>
         <!-- endbuild -->
     </body>

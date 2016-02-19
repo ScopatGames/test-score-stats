@@ -1,0 +1,23 @@
+<form name="scoresForm" novalidate>
+    <div class="form-row clearfix">    
+        <!-- input fields -->
+        <input class="input-box input-name" type="text" maxlength="40" ng-class="{'fail-score': (studentObject.score < 65) && studentObject.score !== null}" ng-model="studentObject.name" ng-model-options="{updateOn : 'blur'}" update-model-on-enter ng-change="saveDataFunction();" pattern="[A-Za-z ]+" ng-pattern-restrict name="name" placeholder="Enter New Student Name" onfocus="if (this.placeholder == 'Enter New Student Name') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = 'Enter New Student Name';}">
+
+        <input class="input-box input-score" type="number" ng-class="{'fail-score': (studentObject.score < 65) && studentObject.score !== null}" ng-model="studentObject.score" ng-model-options="{updateOn : 'blur'}"  update-model-on-enter ng-change="saveDataFunction();" name="score" min="0" max="100" placeholder="0-100" onchange="if (Math.floor(this.value*100) !== this.value*100) {this.value = Math.round(this.value*100)/100;}" onfocus="if (this.placeholder == '0-100') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = '0-100';}">
+
+        <button class="input-btn-x" type="button" ng-class="{'last-item': ($index === 0 && (studentObject.score === null && studentObject.name === null))}" tabindex="-1" ng-click="deleteStudentFunction({index:index});"><i class="ion-close-round"></i></button>
+    </div>
+    <div class="message-row clearfix">
+        <!-- ng-messages -->
+        <div ng-messages="scoresForm.name.$error" class="name-message" > 
+            <div ng-message="pattern"><i class="ion-arrow-up-c"></i> Invalid Name: Use characters "A-Z a-z"</div>
+        </div>
+
+        <div ng-messages="scoresForm.score.$error" class="score-message">
+            <div ng-message="number">Invalid Score: Must be Numeric <i class="ion-arrow-up-c"></i></div>
+            <!--<div ng-message="required">Required field <i class="ion-arrow-up-c"></i></div>-->
+            <div ng-message="min">Invalid Score: 0 - 100 <i class="ion-arrow-up-c"></i></div>
+            <div ng-message="max">Invalid Score: 0 - 100 <i class="ion-arrow-up-c"></i></div>
+        </div>
+    </div>
+</form>
