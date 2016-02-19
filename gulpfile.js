@@ -58,6 +58,12 @@ gulp.task('serve', serve({
     port: 3000})
 );
 
+gulp.task('serve-build', serve({
+    root: 'dist',
+    port: 4000})
+);
+          
+
 gulp.task('useref', function(){
     return gulp.src('app/*.html')
         .pipe(useref())
