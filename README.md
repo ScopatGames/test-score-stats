@@ -34,7 +34,7 @@ Start a local server with gulp:
 
 ```gulp serve```
 
-Open browser to localhost, port 3000:
+Open browser to localhost:3000
 
 
 ## Usage:
