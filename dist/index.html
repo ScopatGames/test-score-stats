@@ -2,7 +2,6 @@
 <html lang="en" ng-app="scoresApp">
     <head>
         <!-- Meta -->
-
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="description" content="User Story: As a teacher, I want to enter a list of student names along with his or her test score on a
 page, so I may see a summary of my class’ performance on a test. The summary shall include the min, max, and average grade.">
@@ -11,29 +10,16 @@ page, so I may see a summary of my class’ performance on a test. The summary s
         <link rel="stylesheet" href="css/style.min.css">
         
         <title>LogRhythm Programming Exercise - Scott Patten</title>
-        
-       
-    
     </head>
     <body ng-controller="ScoresController as vm">
         <header>
             <h1>Test Statistics</h1>
         </header>
-        
         <div class="stats-section">
-            <div class="stats-col">
-                <div><h2>Avg</h2></div>
-                <div class="stat">{{vm.getStats().average}}</div>
+            <div class="stats-col" ng-repeat="stat in vm.stats">
+                <!-- stats-cell custom directive -->
+                <stats-cell stat-object="stat"></stats-cell>
             </div>
-            <div class="stats-col">
-                <div><h2>Max</h2></div>
-                <div class="stat">{{vm.getStats().max}}</div>
-            </div>
-            <div class="stats-col">
-                <div><h2>Min</h2></div>
-                <div class="stat">{{vm.getStats().min}}</div>
-            </div>
-            
         </div>
         <div class="input-section">
             <div class="btn-row clearfix">
@@ -50,17 +36,13 @@ page, so I may see a summary of my class’ performance on a test. The summary s
                 </div>
             </div>
             <div class="input-row" ng-repeat="student in vm.studentData">
+                <!-- input-data-row custom directive -->
                 <input-data-row student-object="student" save-data-function="vm.saveData()" delete-student-function="vm.deleteStudent(index)" index="{{$index}}"></input-data-row>
             </div>
             <br/>
             <button class="input-btn-add" type="button" tabindex="-1" ng-click="vm.addStudent();"><i class="ion-android-person-add"></i>&nbsp;&nbsp;Add New Student</button>
-            
-            
             <div class="clearfix"></div>
         </div>
         <script src="js/main.min.js"></script>
     </body>
-	 
-     
-    
 </html>

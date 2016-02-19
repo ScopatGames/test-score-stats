@@ -46,10 +46,21 @@
                     min = "-";
                     max = "-";
                 }
-                return { average: average, max: max, min: min };
-
                 
-            }
+                var stats = [{
+                    title: "Avg",
+                    data: average
+                }, {
+                    title: "Max",
+                    data: max
+                }, {
+                    title: "Min",
+                    data: min 
+                }];
+            
+                return stats;
+        }
+            
         
         function roundToTwo(num){
             num = Math.round(num + "e+2")+"e-2";

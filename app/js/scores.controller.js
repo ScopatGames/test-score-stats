@@ -13,7 +13,7 @@
         vm.addStudent = addStudent;
         vm.clearData = clearData;
         vm.deleteStudent = deleteStudent;
-        vm.getStats = getStats;
+        vm.stats = [];
         vm.saveData = saveData;
         vm.studentData = [];
         
@@ -46,10 +46,12 @@
         
         function initializeStudentData(){
             vm.studentData = dataservice.getStudentData();
+            vm.stats = getStats();
         }
 
         function saveData(){
             dataservice.saveStudentData(vm.studentData);
+            vm.stats = getStats();
         }
     }
 })();
