@@ -1,6 +1,6 @@
 ## Programming Exercise - README.md :
 
-by Scott Patten scopatten@gmail.com - JAN 21, 2016
+by Scott Patten scopatten@gmail.com
 
 ## User Story:
 As a teacher, I want to enter a list of student names along with his or her test score on a page, so I may see a summary of my class’ performance on a test. The summary shall include the min, max, and average grade.
