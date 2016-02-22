@@ -5,7 +5,6 @@ var gulp = require('gulp');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
 var gulpIf = require('gulp-if');
-var gulpIgnore = require('gulp-ignore');
 var jshint = require('gulp-jshint');
 var karmaServer = require('karma').Server;
 var runSequence = require('run-sequence');
@@ -74,7 +73,6 @@ gulp.task('tdd', function (done) {
 gulp.task('useref', function(){
     return gulp.src('app/*.html')
         .pipe(useref())
-        .pipe(gulpIgnore.exclude('*.spec.js'))
         .pipe(gulpIf('*.js', uglify()))
         .pipe(gulpIf('*.css', cssnano()))
         .pipe(gulp.dest('dist'))
