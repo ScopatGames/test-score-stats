@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
 var gulpIf = require('gulp-if');
+var gulpIgnore = require('gulp-ignore');
 var jshint = require('gulp-jshint');
 var karmaServer = require('karma').Server;
 var runSequence = require('run-sequence');
@@ -16,7 +17,7 @@ var useref = require('gulp-useref');
 // tasks
 
 gulp.task('build', function(callback) {
-    runSequence('clean:dist', 
+    runSequence('clean:dist',
         ['sass', 'useref', 'fonts', 'directives'],
         callback
     )
@@ -34,7 +35,7 @@ gulp.task('default', function(callback) {
 
 gulp.task('directives', function(){
    return gulp.src('app/directives/**/*')
-        .pipe(gulp.dest('dist/directives')); 
+        .pipe(gulp.dest('dist/directives'));
 });
 
 gulp.task('fonts', function(){
@@ -73,6 +74,7 @@ gulp.task('tdd', function (done) {
 gulp.task('useref', function(){
     return gulp.src('app/*.html')
         .pipe(useref())
+        .pipe(gulpIgnore.exclude('*.spec.js'))
         .pipe(gulpIf('*.js', uglify()))
         .pipe(gulpIf('*.css', cssnano()))
         .pipe(gulp.dest('dist'))

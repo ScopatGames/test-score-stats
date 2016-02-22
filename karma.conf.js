@@ -18,8 +18,7 @@ module.exports = function(config) {
         'app/bower_components/angular/angular.js',
         'app/bower_components/angular-messages/angular-messages.js',
         'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/js/*.js',
-      'tests/*.js'
+      'app/js/*.js'
     ],
 
 
