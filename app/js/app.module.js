@@ -1,3 +1,3 @@
 (function(){
-    angular.module('scoresApp', ['ngMessages', 'ngMock']);
+    angular.module('scoresApp', ['ngMessages']);
 })();
