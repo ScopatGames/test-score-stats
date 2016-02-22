@@ -26,6 +26,13 @@ describe("StatsFactory", function() {
 
       afterEach(function(){
         stats = null;
+        data =  [{
+                 name: 'Sudsy McDerman',
+                 score: 64.00
+             }, {
+                 name: 'Boxtrod Folly',
+                 score: 100.00
+         }];
       });
 
       //Tests
