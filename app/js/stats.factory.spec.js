@@ -1,4 +1,4 @@
-describe("Factory", function() {
+describe("StatsFactory", function() {
    var getStatsFactory;
    beforeEach(function(){
      module('scoresApp');

@@ -2,34 +2,34 @@
     angular
         .module('scoresApp')
         .controller('ScoresController', ScoresController);
-    
+
     ScoresController.$inject = ['dataservice', 'getStatsFactory'];
 
     function ScoresController (dataservice, getStatsFactory){
         "ngInject";
-        
+
         var vm = this;
-        
+
         vm.addStudent = addStudent;
         vm.clearData = clearData;
         vm.deleteStudent = deleteStudent;
         vm.stats = [];
         vm.saveData = saveData;
         vm.studentData = [];
-        
+
         initializeStudentData();
-        
+
         /////////////////
-        
+
         function addStudent(){
             vm.studentData.push({name: null, score: null});
         }
-        
+
         function clearData(){
                 vm.studentData = [{name: null, score: null}];
                 saveData();
         }
-        
+
         function deleteStudent (index){
             if(vm.studentData.length === 1){
                 vm.studentData = [{name: null, score: null}];
@@ -39,11 +39,11 @@
             }
             saveData();
         }
-        
+
         function getStats(){
             return getStatsFactory.getStats(vm.studentData);
         }
-        
+
         function initializeStudentData(){
             vm.studentData = dataservice.getStudentData();
             vm.stats = getStats();
