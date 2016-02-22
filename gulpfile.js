@@ -6,6 +6,7 @@ var cssnano = require('gulp-cssnano');
 var del = require('del');
 var gulpIf = require('gulp-if');
 var jshint = require('gulp-jshint');
+var karmaServer = require('karma').Server;
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var serve = require('gulp-serve');
@@ -26,19 +27,19 @@ gulp.task('clean:dist', function(){
 });
 
 gulp.task('default', function(callback) {
-    runSequence(['sass', 'serve', 'watch'],
+    runSequence(['sass', 'serve', 'tdd', 'watch'],
         callback
     )
-});
-
-gulp.task('fonts', function(){
-   return gulp.src('app/fonts/**/*')
-        .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('directives', function(){
    return gulp.src('app/directives/**/*')
         .pipe(gulp.dest('dist/directives')); 
+});
+
+gulp.task('fonts', function(){
+   return gulp.src('app/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('lint', function() {
@@ -62,7 +63,12 @@ gulp.task('serve-build', serve({
     root: 'dist',
     port: 4000})
 );
-          
+
+gulp.task('tdd', function (done) {
+  new karmaServer({
+    configFile: __dirname + '/karma.conf.js'
+  }, done).start();
+});
 
 gulp.task('useref', function(){
     return gulp.src('app/*.html')
@@ -76,4 +82,3 @@ gulp.task('watch', function(){
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/js/**/*.js', ['lint']);
 });
-

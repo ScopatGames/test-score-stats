@@ -2,17 +2,17 @@
     angular
         .module('scoresApp')
         .factory('getStatsFactory', getStatsFactory);
-    
+
     function getStatsFactory(){
-        
+
         var service = {
             getStats: getStats
         };
-        
+
         return service;
-        
+
         //////////////////////
-        
+
         function getStats(data){
                 var sum = 0;
                 var count = 0;
@@ -46,7 +46,7 @@
                     min = "-";
                     max = "-";
                 }
-                
+
                 var stats = [{
                     title: "Avg",
                     data: average
@@ -57,16 +57,14 @@
                     title: "Min",
                     data: min 
                 }];
-            
+
                 return stats;
         }
-            
-        
+
+
         function roundToTwo(num){
             num = Math.round(num + "e+2")+"e-2";
             return +num;
         }
-        
-        
     }
 })();
